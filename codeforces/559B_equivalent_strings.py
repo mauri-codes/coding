@@ -1,19 +1,17 @@
 firstString = input()
 secondString = input()
 
-def equivalent(first, second):
-    if (first == second):
-        return True
-    if (len(first)%2 != 0  or len(second)%2 != 0):
-        return False
-    strMid = int(len(first)/2)
-    firstLeft = first[:strMid]
-    firstRight = first[strMid:]
-    secondLeft = second[:strMid]
-    secondRight = second[strMid:]
+def sortedStr (word):
+    if (len(word) % 2 == 1):
+        return word
+    mid = int(len(word)/2)
+    left = sortedStr(word[mid:])
+    right = sortedStr(word[:mid])
+    if (left > right):
+        return right + left
+    else:
+        return left + right
 
-    return equivalent(firstLeft, secondRight) and equivalent(firstRight, secondLeft)
-
-valid = equivalent(firstString, secondString)
+valid = sortedStr(firstString) == sortedStr(secondString)
 
 print("YES" if valid else "NO")
