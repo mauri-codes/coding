@@ -41,13 +41,6 @@ def fullDiagonal (character):
 def checkWinner(character):
    return fullRow(character) or fullColumn(character) or fullDiagonal(character)
 
-def filledBoard():
-   filled = True
-   for row in range(3):
-      if (any(board[row][column] == '.' for column in range(3))):
-         winDiag = False
-   return filled
-
 for row in range(3):
    rowMoves = input()
    for character in rowMoves:
@@ -55,7 +48,7 @@ for row in range(3):
       board[row].append(character)
 
 message = 'illegal'
-filled = filledBoard()
+filled = dot == 0
 firstWin = checkWinner('X')
 secondWin = checkWinner('0')
 firstTurn = first == second
