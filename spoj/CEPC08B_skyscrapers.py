@@ -37,14 +37,14 @@ for test in range(tests):
     skyscrapers = [{"height": int(sky), "pos": ind} for ind, sky in enumerate(input().split(), start=0)]
     sortedSky = sorted(skyscrapers, key=lambda sky:sky["height"])
 
-    days = [findFirstSky(int(day), n_sky) for day in input().split()]
-    
-    print(days)
-    # skyCopy = [-1]*(n_sky+1)
-    # print(sortedSky)
+    skyCopy = [-1]*(n_sky+1)
 
-    # for sky in sortedSky:
-    #     skyCopy[sky["pos"]+1] = 1
+    for sky in sortedSky:
+        skyCopy[sky["pos"]+1] = sky["height"]
+
+    days = [findFirstSky(int(day), n_sky) for day in input().split()]
+
+    
 
     # print(skyCopy)
     # groups = 0
